@@ -1,19 +1,16 @@
 ---
+import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import BlogPost from "../components/BlogPost.astro";
-const allPosts =  Object.values(import.meta.glob('./posts/*.md', { eager: true }));
+const allPosts = await getCollection("blog");
 
+console.log(allPosts);
 ---
 
 <Layout pageTitle="BLOG PAGE">
   <h2>This is the blog page!</h2>
 
   <ul>
-    {
-      allPosts.map((post: any) => (
-        <BlogPost post={post} />
-      ))
-    }
-
+    {allPosts.map((post: any) => <BlogPost post={post} />)}
   </ul>
 </Layout>

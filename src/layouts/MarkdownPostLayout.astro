@@ -1,19 +1,19 @@
 ---
 import Layout from "./Layout.astro";
-const { frontmatter } = Astro.props;
+const { post } = Astro.props;
 
 ---
 
-<Layout pageTitle={frontmatter.title}>
-  <p>{frontmatter.description}</p>
-  <p>Written by {frontmatter.author}</p>
-  <img src={frontmatter.image.url} alt={frontmatter.image.alt} width="30%" />
-  <p class="date">Published on {frontmatter.pubDate.toString().slice(0, 10)}</p>
-  <p>Tags: {frontmatter.tags.join(", ")}</p>
+<Layout pageTitle={post.title}>
+  <p>{post.description}</p>
+  <p>Written by {post.author}</p>
+  <img src={post.image.url} alt={post.image.alt} width="30%" />
+  <p class="date">Published on {post.pubDate.toString().slice(0, 10)}</p>
+  <p>Tags: {post.tags.join(", ")}</p>
   <slot />
   {
     <ul class="tags">
-      {frontmatter.tags.map((tag: string) => (
+      {post.tags.map((tag: string) => (
         <li class="tag">
           <a href={`/tags/${tag}`}>{tag}</a>
         </li>

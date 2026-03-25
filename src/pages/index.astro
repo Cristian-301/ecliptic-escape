@@ -1,7 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Greeting from "../components/Greetings.jsx";
 ---
 
 <Layout pageTitle="Home">
-    
+     <Greeting client:load messages={["Hi", "Hello", "Howdy", "Hey there"]} />
 </Layout>
