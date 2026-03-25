@@ -1,16 +1,19 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import '../styles/global.css'
+import BlogPost from "../components/BlogPost.astro";
+const allPosts =  Object.values(import.meta.glob('./posts/*.md', { eager: true }));
 
 ---
 
-<Layout>
-  <h1>BLOG</h1>
+<Layout pageTitle="BLOG PAGE">
   <h2>This is the blog page!</h2>
 
   <ul>
-    <li><a href="/posts/post-1/">Post 1</a></li>
-    <li><a href="/posts/post-2/">Post 2</a></li>
-    <li><a href="/posts/post-3/">Post 3</a></li>
+    {
+      allPosts.map((post: any) => (
+        <BlogPost post={post} />
+      ))
+    }
+
   </ul>
 </Layout>

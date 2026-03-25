@@ -1,7 +1,10 @@
 ---
+import '../styles/global.css'
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
-// import '../styles/global.css'
+
+const { pageTitle = "Ecliptic Escape" } = Astro.props;
+
 ---
 
 <!doctype html>
@@ -12,10 +15,11 @@ import Header from "../components/Header.astro";
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
+    <title>{pageTitle}</title>
   </head>
   <body>
     <Header />
+    <h1>{pageTitle}</h1>
     <slot />
     <Footer />
     <script>
@@ -24,11 +28,3 @@ import Header from "../components/Header.astro";
   </body>
 </html>
 
-<style>
-  html,
-  body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-  }
-</style>

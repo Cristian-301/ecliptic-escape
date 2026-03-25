@@ -1,6 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import '../styles/global.css'
 
 const pageTitle = "About Me";
 
@@ -22,7 +21,7 @@ const fontWeight = "bold";
 const textCase = "uppercase";
 ---
 
-<style define:vars={{skillColor, fontWeight, textCase}}>
+<style is:global define:vars={{skillColor, fontWeight, textCase}}>
   h1 {
     color: purple;
     font-size: 4rem;
@@ -34,9 +33,10 @@ const textCase = "uppercase";
     text-transform: var(--textCase);
   }
 </style>
-<Layout>
+
+
+<Layout pageTitle={pageTitle}>
   <div class="p-5 space-y-3">
-    <h1>{pageTitle}</h1>
     <h2>... and my new Astro site!</h2>
 
     <p>
